@@ -43,12 +43,14 @@ struct ContentView: View {
             .zIndex(2)
             
             if show {
-                ForEach(appList) { appInfo in
-                    if appInfo.id == selectedId {
-                        AppDetailView(appInfo: appInfo, namespace: namespace, show: $show, selectedId: $selectedId)
-                            .zIndex(3)
+                ZStack {
+                    ForEach(appList) { appInfo in
+                        if appInfo.id == selectedId {
+                            AppDetailView(appInfo: appInfo, namespace: namespace, show: $show, selectedId: $selectedId)
+                                
+                        }
                     }
-                }
+                }.zIndex(3)
             }
             
         }
